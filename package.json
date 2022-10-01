@@ -3,14 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "babel-loader": "^8.2.5",
+    "babel-plugin-inferno": "6.5.0",
     "inferno": "^8.0.3",
-    "inferno-scripts": "7.0.4"
+    "inferno-animation": "^8.0.3",
+    "inferno-mobx": "^8.0.3",
+    "inferno-router": "^8.0.3",
+    "inferno-server": "^8.0.3",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   },
   "scripts": {
-    "start": "inferno-scripts start",
-    "build": "inferno-scripts build",
-    "test": "inferno-scripts test",
-    "eject": "inferno-scripts eject"
+    "build": "webpack",
+    "serve": "webpack serve"
   },
   "eslintConfig": {
     "extends": "inferno-app"
@@ -20,5 +27,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "webpack-dev-server": "^4.11.1"
+  }
+
 }
