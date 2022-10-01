@@ -2,6 +2,7 @@ import {Provider} from "inferno-mobx";
 import {BrowserRouter, Route} from "inferno-router";
 import {Page1} from "./pages/Page1";
 import {Page2} from "./pages/Page2";
+import {MainLayout} from "./MainLayout";
 
 const App = () => {
   return (
