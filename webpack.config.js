@@ -9,7 +9,7 @@ module.exports = {
     //new BundleAnalyzerPlugin(),
   ],
   entry: {
-    app: './src/index.js',
+    app: './src/index.jsx',
 
   },
   output: {
@@ -19,14 +19,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
           {
             loader: 'babel-loader',
             options: {
               plugins: [
-                ["babel-plugin-inferno", {"imports": true}]
+                ['@babel/plugin-syntax-jsx'],
+                ['@babel/plugin-transform-react-jsx'],
+                ['@babel/plugin-transform-react-display-name'],
+                ['@babel/plugin-proposal-decorators', {legacy: true}],
+                ['@babel/plugin-proposal-class-properties', {loose: false}]
               ]
             }
           }
@@ -35,7 +39,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js'],
+    extensions: ['.jsx', '.js'],
     modules: [
       './node_modules',
       './src'
@@ -45,6 +49,7 @@ module.exports = {
     modules: false,
   },
   devServer: {
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, 'public'),
     },
