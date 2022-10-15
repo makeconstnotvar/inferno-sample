@@ -2,8 +2,11 @@
   "name": "react-mobx-boilerpate",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack",
-    "serve": "webpack serve"
+    "build": "gulp clean && webpack --mode=production && gulp release",
+    "debug": "gulp clean && webpack && gulp debug",
+    "server": "node server",
+    "serve-js": "webpack serve",
+    "serve-css": "gulp watch"
   },
   "dependencies": {
     "@babel/cli": "^7.19.3",
@@ -15,13 +18,23 @@
     "@babel/plugin-transform-react-jsx": "^7.19.0",
     "axios": "^1.1.2",
     "babel-loader": "^8.2.5",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-hash": "^4.2.2",
+    "gulp-inject": "^5.0.5",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
     "mobx": "^6.6.2",
     "mobx-react": "^7.5.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.1",
-    "react-select": "^5.4.0",
+    "react-select": "^5.5.0",
+    "sass": "^1.55.0",
     "webpack": "^5.74.0",
+    "webpack-bundle-analyzer": "^4.6.1",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
   },

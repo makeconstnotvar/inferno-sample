@@ -1,7 +1,7 @@
 import React from 'react';
-import {Header} from "./Header";
+import {Header} from "common/Header";
 
-const MainLayout = (props) => {
+const Layout = (props) => {
   return (
     <div>
       <Header/>
@@ -9,4 +9,4 @@ const MainLayout = (props) => {
     </div>
   )
 }
-export {MainLayout}
+export {Layout}

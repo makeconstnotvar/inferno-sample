@@ -1,4 +1,4 @@
-let webpack = require('webpack');
+//let webpack = require('webpack');
 let path = require('path');
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -9,12 +9,13 @@ module.exports = {
     //new BundleAnalyzerPlugin(),
   ],
   entry: {
-    app: './src/index.jsx',
-
+    admin: './src/admin/App.jsx',
+    manager: './src/manager/App.jsx',
   },
   output: {
     clean: false,
     path: path.resolve(__dirname, 'build'),
+    filename: '[name]/scripts/script.js'
   },
   module: {
     rules: [
@@ -49,9 +50,14 @@ module.exports = {
     modules: false,
   },
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        {from: /^\/admin/, to: '/admin/index.html'},
+        {from: /^\/manager/, to: '/manager/index.html'},
+      ],
+    },
     static: {
-      directory: path.join(__dirname, 'public'),
+      directory: path.join(__dirname, 'build'),
     },
     compress: true,
     port: 8080,
