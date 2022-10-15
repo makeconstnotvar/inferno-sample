@@ -44,5 +44,5 @@ npm run server
 
 
 Репозиторий содержит два приложения.  
-Основное запускается по адресу http://localhost:8080/manager
+Основное запускается по адресу http://localhost:8080/manager  
 Админка запускается по адресу http://localhost:8080/admin
