@@ -6,7 +6,9 @@
     "debug": "gulp clean && webpack && gulp debug",
     "server": "node server",
     "serve-js": "webpack serve",
-    "serve-css": "gulp watch"
+    "serve-css": "gulp watch",
+    "watch-js": "webpack --watch",
+    "watch-css": "gulp watch"
   },
   "dependencies": {
     "@babel/cli": "^7.19.3",
