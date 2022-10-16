@@ -1,0 +1,104 @@
+$custom-theme-colors: (
+        "orange": #ff9800,
+        "deep-purple": #673ab7
+);
+
+@each $color, $value in $custom-theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
+  }
+}
+
+.btn-period {
+  padding: 0;
+  font-size: 12px;
+  width: 80px;
+  border-radius: $border-radius-mini;
+  height: auto;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+.btn-mini {
+  //вместе btn-outline-
+  padding: 1px 6px;
+  border: none;
+}
+
+.btn-xs {
+  padding: 1px 4px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.btn-xs-pr {
+  padding: 1px 10px 1px 4px;
+  font-size: 12px;
+}
+
+.btn-xxs {
+  padding: 1px 4px;
+  font-size: 8px;
+  border-radius: 4px;
+}
+
+.btn-sm {
+  border-radius: 6px;
+}
+
+.btn-sso {
+  position: absolute;
+  right: -50px;
+  top: 3px;
+}
+
+.btn-gallery {
+  position: absolute;
+
+  &.next {
+    top: 50%;
+    right: 25px;
+  }
+
+  &.prev {
+    top: 50%;
+    left: 25px;
+  }
+
+  &.close {
+    top: 25px;
+    right: 25px;
+  }
+}
+
+
+.btn-toggle {
+  color: $text-help;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  .fas {
+    font-size: 25px;
+  }
+
+  &:hover {
+    color: $text-main;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

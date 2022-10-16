@@ -1,0 +1,19 @@
+* {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgb(128, 128, 128);
+    border-radius: $border-radius-mini;
+  }
+
+  // supported from Firefox 64
+  scrollbar-width: 6px;
+  scrollbar-height: 6px;
+}

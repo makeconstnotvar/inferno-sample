@@ -1,0 +1,59 @@
+.nice-checkbox {
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  input + .nice-checkbox-icon:before {
+    display: inline-flex;
+    font-size: 34px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 34px;
+    height: 30px;
+    content: "\2610";
+  }
+
+  input.is-invalid + .nice-checkbox-icon:before {
+    color: #dc3545;
+  }
+
+  input ~ .nice-checkbox-icon2 {
+    margin-right: 10px;
+    font-size: 20px;
+
+    &.fa-check-square {
+      display: none;
+    }
+
+    &.fa-square {
+      display: inline-block;
+    }
+  }
+
+  input:checked ~ .nice-checkbox-icon2 {
+    &.fa-check-square {
+      display: inline-block;
+    }
+
+    &.fa-square {
+      display: none;
+    }
+  }
+
+  input:checked + .nice-checkbox-icon:before {
+    content: "\2611";
+    color: $checkbox;
+  }
+
+  &:hover {
+    input + .nice-checkbox-icon:before {
+      color: $checkbox;
+    }
+  }
+}
