@@ -1,25 +1,25 @@
 import React from 'react';
 import {Provider} from "mobx-react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import {Page1} from "./pages/Page1";
-import {Page2} from "./pages/Page2";
-import {MemoryPage} from "./pages/MemoryPage";
 import {Layout} from "./Layout";
 import {LandingPage} from "./pages/LandingPage";
 import {stores} from "stores/stores";
 import {createRoot} from "react-dom/client";
+import {CharactersPage} from "./pages/CharactersPage";
+import {LocationsPage} from "./pages/LocationsPage";
+import {EpisodesPage} from "./pages/EpisodsPage";
 
 
 const App = () => {
   return (
     <Provider {...stores}>
-      <BrowserRouter basename='/manager'>
+      <BrowserRouter basename='/rick-and-morty'>
         <Layout>
           <Routes>
             <Route path="/" index element={<LandingPage/>}/>
-            <Route path="/page1" element={<Page1/>}/>
-            <Route path="/page2" element={<Page2/>}/>
-            <Route path="/memory" element={<MemoryPage/>}/>
+            <Route path="/characters" element={<CharactersPage/>}/>
+            <Route path="/locations" element={<LocationsPage/>}/>
+            <Route path="/memory" element={<EpisodesPage/>}/>
           </Routes>
         </Layout>
       </BrowserRouter>

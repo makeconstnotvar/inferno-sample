@@ -8,7 +8,7 @@ const hash = require('gulp-hash');
 const inject = require('gulp-inject');
 const del = require('del');
 
-const apps = ['admin', 'manager', 'secure'];
+const apps = ['admin', 'manager', 'secure', 'rick-and-morty'];
 
 /* Копирование */
 apps.forEach(app => {
@@ -71,12 +71,15 @@ gulp.task('debug', gulp.series(
   'copy-admin',
   'copy-manager',
   'copy-secure',
+  'copy-rick-and-morty',
   'common-admin',
   'common-manager',
   'common-secure',
+  'common-rick-and-morty',
   'inject-admin',
   'inject-manager',
   'inject-secure',
+  'inject-rick-and-morty',
 ));
 
 gulp.task('release', gulp.series(
@@ -84,12 +87,15 @@ gulp.task('release', gulp.series(
   'copy-admin',
   'copy-manager',
   'copy-secure',
+  'copy-rick-and-morty',
   'common-admin',
   'common-manager',
   'common-secure',
+  'common-rick-and-morty',
   'inject-admin',
   'inject-manager',
   'inject-secure',
+  'inject-rick-and-morty',
 ));
 
 gulp.task('watch', gulp.series('styles-delete', 'styles-debug', function () {

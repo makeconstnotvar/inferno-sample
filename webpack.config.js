@@ -9,8 +9,9 @@ module.exports = {
     //new BundleAnalyzerPlugin(),
   ],
   entry: {
-    admin: './src/admin/App.jsx',
-    manager: './src/manager/App.jsx',
+    'admin': './src/admin/App.jsx',
+    'manager': './src/manager/App.jsx',
+    'rick-and-morty': './src/rick-and-morty/App.jsx',
   },
   output: {
     clean: false,

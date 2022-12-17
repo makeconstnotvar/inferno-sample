@@ -3,11 +3,11 @@ const app = express();
 const http = require('http');
 const path = require('path');
 const server = http.createServer(app);
-const apps = ['admin', 'manager', 'secure', ];
+const apps = ['admin', 'manager', 'secure', 'rick-and-morty',];
 
 let folder = 'build', i = process.argv.indexOf('--folder');
-if(i > -1) {
-  folder = process.argv[i+1];
+if (i > -1) {
+  folder = process.argv[i + 1];
   console.log(' --- folder:', folder);
 }
 apps.forEach(x => {
@@ -16,28 +16,29 @@ apps.forEach(x => {
   app.use(`/${x}/styles`, express.static(path.join(__dirname, `${folder}/${x}/styles`)));
   app.use(`/${x}/fonts`, express.static(path.join(__dirname, `${folder}/${x}/fonts`)));
   app.use(`/${x}/img`, express.static(path.join(__dirname, `${folder}/${x}/img`)));
-  app.get(`/${x}/matomo/matomo.js`, (req, res) => res.status(200).send(""));
 });
 
-app.use('/favicon', express.static(path.join(__dirname, `${folder}/reports/favicon`)));
-app.use('/scripts', express.static(path.join(__dirname, `${folder}/reports/scripts`)));
-app.use('/styles', express.static(path.join(__dirname, `${folder}/reports/styles`)));
-app.use('/fonts', express.static(path.join(__dirname, `${folder}/reports/fonts`)));
-app.use('/worker', express.static(path.join(__dirname, `${folder}/reports/worker`)));
-app.use('/img', express.static(path.join(__dirname, `${folder}/reports/img`)));
-app.get('/matomo/matomo.js', (req, res) => res.status(200).send(''));
+app.use('/favicon', express.static(path.join(__dirname, `${folder}/manager/favicon`)));
+app.use('/scripts', express.static(path.join(__dirname, `${folder}/manager/scripts`)));
+app.use('/styles', express.static(path.join(__dirname, `${folder}/manager/styles`)));
+app.use('/fonts', express.static(path.join(__dirname, `${folder}/manager/fonts`)));
+app.use('/worker', express.static(path.join(__dirname, `${folder}/manager/worker`)));
+app.use('/img', express.static(path.join(__dirname, `${folder}/manager/img`)));
 
 
 app.get(['/login', '/logout',], (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, `${folder}/secure`)});
 });
 
-app.get(['/admin','/admin/*'], (req, res) => {
+app.get(['/admin', '/admin/*'], (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, `${folder}/admin`)});
 });
 
-app.get(['/manager','/manager/*'], (req, res) => {
+app.get(['/manager', '/manager/*'], (req, res) => {
   res.sendFile('index.html', {root: path.join(__dirname, `${folder}/manager`)});
+});
+app.get(['/rick-and-morty', '/rick-and-morty/*'], (req, res) => {
+  res.sendFile('index.html', {root: path.join(__dirname, `${folder}/rick-and-morty`)});
 });
 
 app.use(function (req, res, next) {
@@ -52,6 +53,6 @@ app.use(function (err, req, res, next) {
 });
 
 server.listen(8080, function () {
-  console.log('Приложение запущено http://localhost:8080');
+  console.log('Приложение запущено http://localhost:8080/manager');
 });
 
