@@ -9,14 +9,12 @@ module.exports = {
     //new BundleAnalyzerPlugin(),
   ],
   entry: {
-    'admin': './src/admin/App.jsx',
-    'manager': './src/manager/App.jsx',
-    'rick-and-morty': './src/rick-and-morty/App.jsx',
+    'app': './src/App.jsx',
   },
   output: {
     clean: false,
     path: path.resolve(__dirname, 'build'),
-    filename: '[name]/scripts/script.js'
+    filename: 'scripts/script.js'
   },
   module: {
     rules: [
@@ -51,12 +49,6 @@ module.exports = {
     modules: false,
   },
   devServer: {
-    historyApiFallback: {
-      rewrites: [
-        {from: /^\/admin/, to: '/admin/index.html'},
-        {from: /^\/manager/, to: '/manager/index.html'},
-      ],
-    },
     static: {
       directory: path.join(__dirname, 'build'),
     },

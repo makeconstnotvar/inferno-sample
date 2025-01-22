@@ -16,7 +16,6 @@ const get = url => async ({params}) => {
   return response.data;
 }
 
-
 const del = url => async ({params}) => {
   const response = await axios.delete(url, {params});
   return response.data;

@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: $tc5-font-family;
+  font-family: $base-font-family;
   background-color: $back-main;
   margin: 0;
   min-height: 100vh;
@@ -24,7 +24,7 @@ body {
 
 input,
 textarea {
-  font-family: $tc5-font-family;
+  font-family: $base-font-family;
 }
 
 textarea {
